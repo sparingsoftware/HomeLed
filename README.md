@@ -1,3 +1,6 @@
+
+![home_led_logo](https://github.com/SparingSoftware/HomeLed/blob/master/images/home_led_logo.png)
+
 # Home LED
  React Native + Arduino + LED
 
