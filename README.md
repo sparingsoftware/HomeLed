@@ -17,7 +17,7 @@
 2. Setup iOS/Android SDK
 3. Setup RN CLI
 4. Install dependencies `yarn install`
-5. Eventually install ios dependencies `cd ios && pod install`
+5. If necessary install iOS dependencies `cd ios && pod install`
 6. Run `yarn ios` / `yarn android`
 
 You can find all details here: [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup)
