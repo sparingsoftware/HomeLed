@@ -4,12 +4,14 @@
 # Home LED
  React Native + Arduino + LED
 
+
+![home_led_video](https://github.com/SparingSoftware/HomeLed/blob/master/images/home_led.gif)
+
+
 ## TODO
    
 
- - Readme.md
  - Arduino connection scheme
- - Video/GIF
  - Handle onDisconnect
  - Splashscreen
  - Option to change favourites colors order
