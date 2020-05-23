@@ -16,3 +16,5 @@
  - Enable multiple connection with device (Arduino set as Central / Master or enable multiple connections as Peripheral (Slave))
  - Refactor BLE communication / protocol
  - Add and remove item animation Android
+ - Picker throttling
+ - Debug mode (without physical BLE)
