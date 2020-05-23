@@ -13,17 +13,18 @@
 ![home_led_video](https://github.com/SparingSoftware/HomeLed/blob/master/images/scheme.png)
 
 ## Install and run
-1. Setup iOS/Android SDK
-2. Setup RN CLI
-3. Install dependencies `yarn install`
-4. Eventually install ios dependencies `cd ios && pod install`
-5. Run `yarn ios` / `yarn android`
+1. Connect hardware (manual in progress...)
+2. Setup iOS/Android SDK
+3. Setup RN CLI
+4. Install dependencies `yarn install`
+5. Eventually install ios dependencies `cd ios && pod install`
+6. Run `yarn ios` / `yarn android`
 
 You can find all details here: [https://reactnative.dev/docs/environment-setup](https://reactnative.dev/docs/environment-setup)
 
 ## TODO
    
-
+ - Hardware setup manual (video?)
  - Handle onDisconnect
  - Splashscreen
  - Option to change favourites colors order
