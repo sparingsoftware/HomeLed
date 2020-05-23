@@ -10,6 +10,6 @@ interface ContextType {
 }
 
 export const StateContext = createContext<ContextType>({
-  currentColor: { h: 0, s: 0, v: 0 },
+  currentColor: { h: 0, s: 0, v: 1 },
   currentAlpha: 100
 });

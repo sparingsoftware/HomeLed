@@ -1,3 +1,5 @@
+import ColorPalette from '../components/home/palette/ColorPalette/ColorPalette';
+
 export interface HSV {
   h: number;
   s: number;
@@ -76,6 +78,8 @@ function singleColorToHex(rgb: number) {
   return hex;
 }
 
+//
+
 export function rgbToHex(r: number, g: number, b: number) {
   var red = singleColorToHex(r);
   var green = singleColorToHex(g);
@@ -83,7 +87,24 @@ export function rgbToHex(r: number, g: number, b: number) {
   return red + green + blue;
 }
 
+//
+
 export function hsvToHex(hsv: HSV) {
   const { r, g, b } = rawHSVtoRGB(hsv);
   return rgbToHex(r, g, b);
+}
+
+//
+
+export function isColorEqual(
+  color1?: HSV | null,
+  color2?: HSV | null
+): boolean {
+  if (!color1 || !color2) {
+    return false;
+  }
+
+  return (
+    color1.h === color2.h && color1.s === color2.s && color1.v === color2.v
+  );
 }

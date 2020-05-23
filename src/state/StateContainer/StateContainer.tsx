@@ -10,7 +10,7 @@ interface Props {
 }
 
 const StateContainer = (props: Props) => {
-  const [currentColor, setCurrentColor] = useState<HSV>({ h: 0, s: 0, v: 0 });
+  const [currentColor, setCurrentColor] = useState<HSV>({ h: 0, s: 0, v: 1 });
   const [currentAlpha, setCurrentAlpha] = useState(100);
 
   function onColorSelect(color: HSV) {

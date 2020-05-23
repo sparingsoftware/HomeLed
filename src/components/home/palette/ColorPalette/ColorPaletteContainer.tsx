@@ -1,9 +1,17 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+  useCallback
+} from 'react';
 import { HSV, hsvToHex } from '../../../../theme/colors';
 import { FavouritesContext } from '../../../../favourites/context/context';
 import ColorPalette from './ColorPalette';
 import transformColor from '../transformColor/transformColor';
 import { StateContext } from '../../../../state/context/context';
+import { useThrottleCallback } from '@react-hook/throttle';
+
 //
 
 const ColorPaletteContainer = () => {

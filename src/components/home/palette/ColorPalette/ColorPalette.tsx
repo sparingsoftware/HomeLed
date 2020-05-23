@@ -1,5 +1,17 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
-import { HSV, HSVtoRGB, rawHSVtoRGB, hsvToHex } from '../../../../theme/colors';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+  useCallback
+} from 'react';
+import {
+  HSV,
+  HSVtoRGB,
+  rawHSVtoRGB,
+  hsvToHex,
+  isColorEqual
+} from '../../../../theme/colors';
 import {
   AlphaSlider,
   Container,
@@ -10,6 +22,8 @@ import {
   RightPanel
 } from './ColorPalette.styled';
 import { Animated, View } from 'react-native';
+import { useThrottleCallback } from '@react-hook/throttle';
+
 //
 
 const addImage = require('assets/images/add_button.png');
@@ -23,7 +37,13 @@ interface Props {
   onAddColor: () => void;
 }
 
+//
+
 const StartColor = '#ffffff';
+
+const ThrottleChangeFps = 4;
+
+//
 
 const ColorPalette = ({
   currentAlpha,
@@ -35,6 +55,11 @@ const ColorPalette = ({
   const showAnim = useRef(new Animated.Value(0)).current;
 
   const wheelRef = useRef(null);
+
+  // this is because ColorWheel may call onColorChange at start and we don't want to send this
+  const isStartChange = useRef(true);
+
+  //
 
   function show() {
     Animated.spring(showAnim, {
@@ -50,13 +75,28 @@ const ColorPalette = ({
   // scroll when currentColor changed
   useEffect(() => {
     if (currentColor) {
-      // this 'forceUpdate' is a hack (not officially documented) - it may not work properly
-      setTimeout(
-        () => wheelRef.current?.forceUpdate(hsvToHex(currentColor)),
-        300
-      );
+      // TODO scroll
     }
   }, [currentColor]);
+
+  const onThrottleColorSelected = useThrottleCallback(
+    onColorSelected,
+    ThrottleChangeFps,
+    false
+  );
+  const onThrottleAlphaSelected = useThrottleCallback(
+    onAlphaSelected,
+    ThrottleChangeFps,
+    false
+  );
+
+  function onColorChange(color: HSV) {
+    if (!isStartChange.current) {
+      onThrottleColorSelected(color);
+    }
+
+    isStartChange.current = false;
+  }
 
   return (
     <Container>
@@ -68,9 +108,12 @@ const ColorPalette = ({
         initialColor={StartColor}
         onColorChangeComplete={(color: any) => {
           if (color) {
-            console.log('WHEEL COLOR = ', color);
-
-            onColorSelected(color);
+            onThrottleColorSelected(color);
+          }
+        }}
+        onColorChange={(color: any) => {
+          if (color) {
+            onColorChange(color);
           }
         }}
         // eslint-disable-next-line react-native/no-inline-styles
@@ -84,7 +127,8 @@ const ColorPalette = ({
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#333"
             value={currentAlpha}
-            onSlidingComplete={(val) => onAlphaSelected(val)}
+            onSlidingComplete={(val) => onThrottleAlphaSelected(val)}
+            onValueChange={(val) => onThrottleAlphaSelected(val)}
           />
         </SliderContainer>
       </RightPanel>
