@@ -34,3 +34,7 @@ You can find all details here: [https://reactnative.dev/docs/environment-setup](
  - Debug mode (without physical BLE)
  - Claps detector to turn on/off lights
  - Audio volume detect and auto adjust brightness
+ 
+ 
+ ## License
+MIT License © [Sparing Interactive](https://github.com/SparingSoftware)
