@@ -8,10 +8,14 @@
 ![home_led_video](https://github.com/SparingSoftware/HomeLed/blob/master/images/home_led.gif)
 
 
+## Scheme
+![home_led_video](https://github.com/SparingSoftware/HomeLed/blob/master/images/scheme.png)
+
+---
+
 ## TODO
    
 
- - Arduino connection scheme
  - Handle onDisconnect
  - Splashscreen
  - Option to change favourites colors order
