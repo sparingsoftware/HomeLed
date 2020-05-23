@@ -20,3 +20,5 @@
  - Add and remove item animation Android
  - Picker animation (scroll) when color seleted from favourites
  - Debug mode (without physical BLE)
+ - Claps detector to turn on/off lights
+ - Audio volume detect and auto adjust brightness
