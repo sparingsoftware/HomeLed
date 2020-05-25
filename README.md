@@ -30,7 +30,8 @@ You can find all details here: [https://reactnative.dev/docs/environment-setup](
  - Option to change favourites colors order
  - Enable multiple connection with device (Arduino set as Central / Master or enable multiple connections as Peripheral (Slave))
  - Refactor BLE communication / protocol (handle fast color change)
- - Add and remove item animation Android
+ - Add and remove item animation
+ - Android runtime permissions (location)
  - Picker animation (scroll) when color is selected from favourites
  - Debug mode (without physical BLE)
  - Claps detector to turn on/off lights
