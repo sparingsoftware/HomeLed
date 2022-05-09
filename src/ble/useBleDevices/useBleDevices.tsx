@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import { useAppState } from 'src/utils/useAppState';
+import { HSV } from '../../theme/colors';
 import useBleConnection, {
   BleDevice
 } from '../useBleConnection/useBleConnection';
 import useBleStorage from '../useBleStorage/useBleStorage';
-import useAppState from 'react-native-appstate-hook';
-import { HSV } from '../../theme/colors';
 
 //
 

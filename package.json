@@ -20,6 +20,7 @@
     "react-native-base64": "0.0.2",
     "react-native-ble-plx": "^2.0.0",
     "react-native-color-wheel": "https://github.com/netbeast/react-native-color-wheel.git",
+    "react-native-fix-image": "^2.1.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-hooks": "^0.9.0",
     "react-native-linear-gradient": "^2.5.6",

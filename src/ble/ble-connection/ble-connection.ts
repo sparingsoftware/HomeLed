@@ -1,8 +1,8 @@
-import { bleManager } from '../../app/App';
-import { HSV, HSVtoRGB, rawHSVtoRGB } from '../../theme/colors';
-import { BleDevice } from '../useBleConnection/useBleConnection';
 // @ts-ignore
 import base64 from 'react-native-base64';
+import { bleManager } from '../../app/App';
+import { HSV, rawHSVtoRGB } from '../../theme/colors';
+import { BleDevice } from '../useBleConnection/useBleConnection';
 
 //
 
@@ -106,7 +106,7 @@ export default class BleConnection {
     const { r, g, b } = rawHSVtoRGB(color);
     const a = 255;
 
-    const msg = base64.encode(`${r}-${g}-${b}-${a}-`);
+    const msg = base64.encode(`${b}-${g}-${r}-${a}-`);
 
     // send info to device
     bleManager
